@@ -1,22 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Queen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="About Me page for CS144 Project 1">
+    <title>About Me | CS144 Project 1</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Who is this diva?</h1>
-    <img src="assets/cutie-patootie.jpeg" alt="cutest girl in the world" id="princess">
+    <header>
+        <h1>About Me <span></span></h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Who I Am</h2>
+            <p>Hello! I’m Nathan Punya, a Computer Science student at UCLA who loves building web apps and exploring AI.
+                Anyways, here's a picture of my cat.
+            </p>
+            <img src="/assets/lilar.jpeg" alt="Not a profile picture, but a picture of my cat">
+        </section>
+
+        <section id="skills">
+            <h2>Skills Overview</h2>
+            <div class="grid">
+                <div class="card highlight">React</div>
+                <div class="card">JavaScript</div>
+                <div class="card">HTML & CSS</div>
+                <div class="card">Python</div>
+                <div class="card">C++</div>
+                <div class="card">Node.js</div>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2>Fun Facts</h2>
+            <ul>
+                <li>Programming
+                    <ul>
+                        <li>Web Development</li>
+                        <li>AI/ML Research</li>
+                        <li>Graphics</li>
+                    </ul>
+                </li>
+                <li>Other
+                    <ul>
+                        <li>Rubik's Cube</li>
+                        <li>Petting cat</li>
+                        <li>Working out</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <fieldset>
+                    <legend>Reach Out</legend>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" id="birthday" name="birthday" required>
+
+                    <label for="rating">Rate my page:</label>
+                    <input type="range" id="rating" name="rating" min="1" max="10">
+
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nathan Punya:
+            <a href="https://github.com/NathanPunya" target="github n8">GitHub</a>
+            <a href="jk.html">Resume</a>
+            <a href="https://linkedin.com" target="linkedin n8">LinkedIn</a>
+        </p>
+
+    </footer>
+
+    <script src="app.js"></script>
 </body>
-
-<script>
-
-</script>
 
 </html>
