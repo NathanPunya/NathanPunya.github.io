@@ -1,101 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="About Me page for CS144 Project 1">
-    <title>About Me | CS144 Project 1</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Nathan Punya - macOS Mock</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <h1>About Me <span></span></h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button id="theme-toggle">Toggle Dark Mode</button>
-    </header>
+    <!-- Boot Screen -->
+    <div id="boot-screen" class="fullscreen">
+        <img src="/images/apple-250.svg" alt="Apple Logo" class="apple-logo" draggable="false" />
+        <div class="boot-loading-bar">
+            <div class="boot-loading-bar-fill" id="boot-bar-fill"></div>
+        </div>
+    </div>
 
-    <main>
-        <section id="about">
-            <h2>Who I Am</h2>
-            <p>Hello! I’m Nathan Punya, a Computer Science student at UCLA who loves building web apps and exploring AI.
-                Anyways, here's a picture of my cat.
-            </p>
-            <img src="/assets/lilar.jpeg" alt="Not a profile picture, but a picture of my cat">
-        </section>
-
-        <section id="skills">
-            <h2>Skills Overview</h2>
-            <div class="grid">
-                <div class="card highlight">React</div>
-                <div class="card">JavaScript</div>
-                <div class="card">HTML & CSS</div>
-                <div class="card">Python</div>
-                <div class="card">C++</div>
-                <div class="card">Node.js</div>
-            </div>
-        </section>
-
-        <section id="hobbies">
-            <h2>Fun Facts</h2>
-            <ul>
-                <li>Programming
-                    <ul>
-                        <li>Web Development</li>
-                        <li>AI/ML Research</li>
-                        <li>Graphics</li>
-                    </ul>
-                </li>
-                <li>Other
-                    <ul>
-                        <li>Rubik's Cube</li>
-                        <li>Petting cat</li>
-                        <li>Working out</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <fieldset>
-                    <legend>Reach Out</legend>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="birthday">Birthday:</label>
-                    <input type="date" id="birthday" name="birthday" required>
-
-                    <label for="rating">Rate my page:</label>
-                    <input type="range" id="rating" name="rating" min="1" max="10">
-
-                    <button type="submit">Submit</button>
-                </fieldset>
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="fullscreen lock-bg">
+        <div class="lock-time-container">
+            <div class="lock-date" id="lock-date"></div>
+            <div class="lock-time" id="lock-time"></div>
+        </div>
+        <div class="lock-profile-container">
+            <img src="/images/iClarified-macOS-Sonoma-Dark.jpg" alt="Profile" class="lock-profile-img" />
+            <div class="lock-profile-name">Nathan Punya</div>
+            <form id="password-form" autocomplete="off">
+                <div class="lock-password-box">
+                    <input type="password" id="password-input" placeholder="Enter Password" autocomplete="off" />
+                    <button type="submit" class="lock-password-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="13 6 19 12 13 18" />
+                        </svg>
+                    </button>
+                </div>
             </form>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Nathan Punya:
-            <a href="https://github.com/NathanPunya" target="github n8">GitHub</a>
-            <a href="jk.html">Resume</a>
-            <a href="https://linkedin.com" target="linkedin n8">LinkedIn</a>
-        </p>
+    <!-- Desktop (placeholder) -->
+    <div id="desktop" class="fullscreen desktop-bg">
+        <div class="desktop-welcome">Welcome to my website!</div>
+    </div>
 
-    </footer>
-
-    <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
