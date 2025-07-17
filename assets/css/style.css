@@ -1,0 +1,80 @@
+/*
+Theme Name: Semplice v6
+Theme URI: https://www.semplice.com
+Author: Semplicelabs
+Author URI: https://www.semplice.com
+Description: With Semplice you can build fully responsive case studies & custom branded project pages with just a few clicks. Visit our <a href="http://help.semplice.com" target="_blank">documentation</a>, <a href="https://www.semplice.com/changelog-v6-studio" target="_blank">changelog</a> and follow us on <a href="http://www.twitter.com/semplicelabs" target="_blank">Twitter</a> for update notifications.
+Version: 6.2.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: portfolio, responsive, case study, fullscreen cover, content editor
+Text Domain: semplice
+*/
+/*
+
+	How to add Custom CSS?
+	------------------------------------------------------------------------------------------------------------------------------------
+	Semplice is coded with SASS (http://sass-lang.com/) 
+	There are 2 ways to edit or override CSS definitions:
+	
+	# Use the Custom CSS fields in the Theme Options under 'Customize -> Advanced'
+	# Add a child theme, more info in the Documentation. http//help.semplice.com
+
+*/
+.semplice-gallery-slider {
+	position: relative;
+}
+
+.mobile-gallery-arrow {
+	display: none;
+	position: absolute;
+	top: 47%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	box-shadow: none;
+	backdrop-filter: none;
+	border-radius: 0;
+	width: auto;
+	height: auto;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+	pointer-events: none;
+}
+
+.mobile-gallery-arrow .arrow {
+	color: #fff;
+	font-size: 2.2em;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-shadow: none;
+	line-height: 1;
+	opacity: 0.85;
+	mix-blend-mode: difference;
+}
+
+.mobile-gallery-arrow-left {
+	left: 8px;
+}
+
+.mobile-gallery-arrow-right {
+	right: 8px;
+}
+
+.mobile-gallery-hint-center .hint-text {
+	color: #222;
+	font-weight: 400;
+	opacity: 0.85;
+	margin: 0 2px;
+}
+
+.content-wrapper {
+	position: relative;
+}
+
+body.mobile-device .mobile-gallery-arrow {
+	display: flex;
+}
