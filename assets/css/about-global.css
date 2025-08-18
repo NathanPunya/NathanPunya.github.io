@@ -1472,6 +1472,14 @@ html {
     transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
 }
 
+#page-transition-overlay.transitioning {
+    pointer-events: auto;
+}
+
+#page-transition-overlay.page-load-reveal {
+    transform: translateY(100%);
+}
+
 /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
     display: none;

@@ -29,6 +29,21 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+//on load transition (swipe down)
+document.addEventListener('DOMContentLoaded', function () {
+    const overlay = document.getElementById('page-transition-overlay');
+    if (overlay) {
+        overlay.offsetHeight;
+
+        setTimeout(function () {
+            overlay.classList.add('page-load-reveal');
+
+            setTimeout(function () {
+                overlay.classList.remove('page-load-reveal');
+            }, 1000);
+        }, 0);
+    }
+});
 
 document.addEventListener('click', function (e) {
     var link = e.target.closest('a');
