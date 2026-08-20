@@ -3,26 +3,23 @@ function verifyPassword(event) {
     event.preventDefault();
 
     const passwordInput = document.getElementById('passwordInput');
-    if (!passwordInput) {
-        return false;
-    }
-
+    const passwordMessage = document.getElementById('passwordMessage');
     const enteredPassword = passwordInput.value.trim();
 
     const correctPassword = 'balls';
 
     if (enteredPassword === '') {
-        showMessage('Please enter a password.', 'error');
         return false;
     }
 
     if (enteredPassword === correctPassword) {
-        showMessage('Access granted.', 'success');
         setTimeout(() => {
+            // Example: redirect to content or show content
+            // window.location.href = 'content.html';
+            // Or show hidden content:
             showProtectedContent();
-        }, 800);
+        }, 1500);
     } else {
-        showMessage('Incorrect password. Try again.', 'error');
         passwordInput.value = '';
         passwordInput.focus();
     }
@@ -32,10 +29,6 @@ function verifyPassword(event) {
 
 function showMessage(message, type) {
     const passwordMessage = document.getElementById('passwordMessage');
-    if (!passwordMessage) {
-        return;
-    }
-
     passwordMessage.textContent = message;
     passwordMessage.className = `password-message ${type}`;
     passwordMessage.style.display = 'block';
@@ -49,10 +42,6 @@ function showMessage(message, type) {
 
 function showProtectedContent() {
     const contentContainer = document.getElementById('content-206');
-    if (!contentContainer) {
-        return;
-    }
-
     contentContainer.innerHTML = `
     <div class="transition-wrap">
         <div class="sections">
@@ -71,3 +60,14 @@ function showProtectedContent() {
     </div>
     `;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const passwordInput = document.getElementById('passwordInput');
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                verifyPassword(e);
+            }
+        });
+    }
+});
