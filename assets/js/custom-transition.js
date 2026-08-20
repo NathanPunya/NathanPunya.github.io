@@ -48,13 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('click', function (e) {
     var link = e.target.closest('a');
     if (link && !link.target && link.href && link.origin === window.location.origin) {
-        if (link.classList.contains('open-menu') || link.classList.contains('menu-icon')) {
-            return;
-        }
-        const hrefAttr = link.getAttribute('href') || '';
-        if (hrefAttr.endsWith('.pdf') || hrefAttr.startsWith('mailto:') || hrefAttr.startsWith('tel:')) {
-            return;
-        }
         const currentUrl = new URL(window.location.href, window.location.origin);
         const linkUrl = new URL(link.href, window.location.origin);
         const currentNoHash = currentUrl.origin + currentUrl.pathname + currentUrl.search;

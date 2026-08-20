@@ -47,6 +47,38 @@
     s4.animate.gsap["paragraph-1-content"].to("#content-holder #paragraph-1-content .is-content", props);
     // pause timeline
     s4.animate.gsap["paragraph-1-content"].pause();
+    var playRepeat = []; var options = JSON.parse('{"id":"paragraph-4","trigger":"#content-holder #paragraph-4","start":"top+=100% bottom","end":"+=110%","pin":true,"markers":false,"pinSpacing":false,"scrub":0}');
+    if (options.pin === true) {
+        if ("paragraph-4".indexOf("section_") > -1 || "paragraph-4".indexOf("cover") > -1) {
+            $("#paragraph-4").wrap("<div class='section-pin sp_paragraph-4'></div>");
+            options["trigger"] = ".sp_paragraph-4";
+        } else if ("paragraph-4".indexOf("column_") > -1) {
+            $("#paragraph-4").wrap("<div class='column-pin-outer cpo_paragraph-4'><div class='column-pin-inner cpi_paragraph-4 '></div></div>");
+            options["trigger"] = ".cpi_paragraph-4";
+            var atts = $("#paragraph-4").prop("attributes");
+            $.each(atts, function (key, attr) {
+                if (attr.name.indexOf("width") > -1) {
+                    $(".cpo_paragraph-4").attr(attr.name, attr.value);
+                }
+            });
+        } else if ("paragraph-4".indexOf("content_") > -1) {
+            options["trigger"] = "#paragraph-4";
+        }
+
+    }
+    s4.animate.gsap["paragraph-4"] = gsap.timeline({
+        scrollTrigger: options,
+    });
+
+    // gsap set transform
+    gsap.set("#content-holder #paragraph-4", JSON.parse('{"translateY":0,"translateX":0,"rotate":"0deg","rotateY":"0deg","rotateX":"0deg","skewX":"0deg","skewY":"0deg","scaleX":"1","scaleY":"1"}'));
+
+    // parse props
+    var props = JSON.parse('{"duration":0.8,"ease":"Power1.easeOut","delay":0,"opacity":1}');
+    // add to timeline
+    s4.animate.gsap["paragraph-4"].to("#content-holder #paragraph-4", props);
+    // pause timeline
+    s4.animate.gsap["paragraph-4"].pause();
     var playRepeat = []; var options = JSON.parse('{"id":"paragraph-2","trigger":"#content-holder #paragraph-2","start":"top+=100% bottom","end":"+=110%","pin":true,"markers":false,"pinSpacing":false,"scrub":0}');
     if (options.pin === true) {
         if ("paragraph-2".indexOf("section_") > -1 || "paragraph-2".indexOf("cover") > -1) {
@@ -228,15 +260,35 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener('click', function (e) {
+    var link = e.target.closest('a');
+    if (
+        link &&
+        !link.target &&
+        link.href &&
+        link.origin === window.location.origin &&
+        link.pathname !== window.location.pathname
+    ) {
+        e.preventDefault();
+        var overlay = document.getElementById('page-transition-overlay');
+        if (overlay) {
+            overlay.style.transition = 'transform 0.7s cubic-bezier(.77,0,.18,1)';
+            overlay.style.transform = 'translateY(0)';
+            setTimeout(function () {
+                window.location = link.href;
+            }, 700);
+        } else {
+            window.location = link.href;
+        }
+    }
+}, true);
+
 let hasExploded = false;
 let scrollTimeout;
 
 // Enhanced scroll indicator behavior
 window.addEventListener('scroll', function () {
     const scrollIndicator = document.getElementById('scrollIndicator');
-    if (!scrollIndicator) {
-        return;
-    }
     const scrollY = window.scrollY;
 
     // Clear existing timeout
@@ -284,9 +336,6 @@ window.addEventListener('scroll', function () {
 // Add some extra spice with mouse interaction
 document.addEventListener('DOMContentLoaded', function () {
     const scrollIndicator = document.getElementById('scrollIndicator');
-    if (!scrollIndicator) {
-        return;
-    }
 
     // Add hover effect for extra interactivity
     scrollIndicator.addEventListener('mouseenter', function () {
